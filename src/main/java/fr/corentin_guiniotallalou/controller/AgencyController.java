@@ -1,7 +1,7 @@
 package fr.corentin_guiniotallalou.controller;
 
 import fr.corentin_guiniotallalou.model.Agency;
-import fr.corentin_guiniotallalou.service.AgencyService;
+import fr.corentin_guiniotallalou.service.IAgencyService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,9 +10,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/agencies")
 public class AgencyController {
-    private final AgencyService agencyService;
+    private final IAgencyService agencyService;
 
-    public AgencyController(AgencyService agencyService) {
+    public AgencyController(IAgencyService agencyService) {
         this.agencyService = agencyService;
     }
 

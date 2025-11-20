@@ -1,7 +1,7 @@
 package fr.corentin_guiniotallalou.controller;
 
 import fr.corentin_guiniotallalou.model.SavingsAccount;
-import fr.corentin_guiniotallalou.service.SavingsAccountService;
+import fr.corentin_guiniotallalou.service.ISavingsAccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,9 +10,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/savings-accounts")
 public class SavingsAccountController {
-    private final SavingsAccountService savingsAccountService;
+    private final ISavingsAccountService savingsAccountService;
 
-    public SavingsAccountController(SavingsAccountService savingsAccountService) {
+    public SavingsAccountController(ISavingsAccountService savingsAccountService) {
         this.savingsAccountService = savingsAccountService;
     }
 

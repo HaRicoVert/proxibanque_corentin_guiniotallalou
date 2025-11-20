@@ -10,10 +10,10 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class AdvisorService {
+public class AdvisorServiceImpl implements IAdvisorService {
     private final AdvisorRepository advisorRepository;
 
-    public AdvisorService(AdvisorRepository advisorRepository) {
+    public AdvisorServiceImpl(AdvisorRepository advisorRepository) {
         this.advisorRepository = advisorRepository;
     }
 

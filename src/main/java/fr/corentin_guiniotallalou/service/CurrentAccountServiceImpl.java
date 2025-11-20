@@ -10,10 +10,10 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class CurrentAccountService {
+public class CurrentAccountServiceImpl implements ICurrentAccountService {
     private final CurrentAccountRepository currentAccountRepository;
 
-    public CurrentAccountService(CurrentAccountRepository currentAccountRepository) {
+    public CurrentAccountServiceImpl(CurrentAccountRepository currentAccountRepository) {
         this.currentAccountRepository = currentAccountRepository;
     }
 

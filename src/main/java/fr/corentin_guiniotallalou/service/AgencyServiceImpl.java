@@ -9,10 +9,10 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class AgencyService {
+public class AgencyServiceImpl implements IAgencyService {
     private final AgencyRepository agencyRepository;
 
-    public AgencyService(AgencyRepository agencyRepository) {
+    public AgencyServiceImpl(AgencyRepository agencyRepository) {
         this.agencyRepository = agencyRepository;
     }
 

@@ -10,10 +10,10 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class ClientService {
+public class ClientServiceImpl implements IClientService {
     private final ClientRepository clientRepository;
 
-    public ClientService(ClientRepository clientRepository) {
+    public ClientServiceImpl(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 

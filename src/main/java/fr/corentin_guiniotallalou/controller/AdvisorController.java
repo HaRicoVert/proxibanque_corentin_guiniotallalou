@@ -1,7 +1,7 @@
 package fr.corentin_guiniotallalou.controller;
 
 import fr.corentin_guiniotallalou.model.Advisor;
-import fr.corentin_guiniotallalou.service.AdvisorService;
+import fr.corentin_guiniotallalou.service.IAdvisorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -9,9 +9,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/advisors")
 public class AdvisorController {
-    private final AdvisorService advisorService;
+    private final IAdvisorService advisorService;
 
-    public AdvisorController(AdvisorService advisorService) {
+    public AdvisorController(IAdvisorService advisorService) {
         this.advisorService = advisorService;
     }
 

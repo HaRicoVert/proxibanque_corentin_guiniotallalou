@@ -1,7 +1,7 @@
 package fr.corentin_guiniotallalou.controller;
 
 import fr.corentin_guiniotallalou.model.CurrentAccount;
-import fr.corentin_guiniotallalou.service.CurrentAccountService;
+import fr.corentin_guiniotallalou.service.ICurrentAccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,9 +10,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/current-accounts")
 public class CurrentAccountController {
-    private final CurrentAccountService currentAccountService;
+    private final ICurrentAccountService currentAccountService;
 
-    public CurrentAccountController(CurrentAccountService currentAccountService) {
+    public CurrentAccountController(ICurrentAccountService currentAccountService) {
         this.currentAccountService = currentAccountService;
     }
 

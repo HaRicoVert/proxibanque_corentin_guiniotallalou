@@ -1,7 +1,7 @@
 package fr.corentin_guiniotallalou.controller;
 
 import fr.corentin_guiniotallalou.model.Client;
-import fr.corentin_guiniotallalou.service.ClientService;
+import fr.corentin_guiniotallalou.service.IClientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -9,9 +9,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/clients")
 public class ClientController {
-    private final ClientService clientService;
+    private final IClientService clientService;
 
-    public ClientController(ClientService clientService) {
+    public ClientController(IClientService clientService) {
         this.clientService = clientService;
     }
 
