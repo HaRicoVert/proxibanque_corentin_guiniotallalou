@@ -1,6 +1,6 @@
 package fr.corentin_guiniotallalou.controller;
 
-import fr.corentin_guiniotallalou.model.SavingsAccount;
+import fr.corentin_guiniotallalou.dto.SavingsAccountDTO;
 import fr.corentin_guiniotallalou.service.ISavingsAccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,23 +17,23 @@ public class SavingsAccountController {
     }
 
     @GetMapping
-    public List<SavingsAccount> getAllSavingsAccounts() {
+    public List<SavingsAccountDTO> getAllSavingsAccounts() {
         return savingsAccountService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SavingsAccount> getSavingsAccountById(@PathVariable Long id) {
+    public ResponseEntity<SavingsAccountDTO> getSavingsAccountById(@PathVariable Long id) {
         return savingsAccountService.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/{id}/with-card")
-    public ResponseEntity<SavingsAccount> getSavingsAccountWithCard(@PathVariable Long id) {
+    public ResponseEntity<SavingsAccountDTO> getSavingsAccountWithCard(@PathVariable Long id) {
         return savingsAccountService.findByIdWithCard(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public SavingsAccount createSavingsAccount(@RequestBody SavingsAccount account) {
-        return savingsAccountService.save(account);
+    public SavingsAccountDTO createSavingsAccount(@RequestBody SavingsAccountDTO accountDTO) {
+        return savingsAccountService.save(accountDTO);
     }
 
     @DeleteMapping("/{id}")

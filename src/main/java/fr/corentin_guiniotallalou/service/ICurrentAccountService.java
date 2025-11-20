@@ -1,14 +1,14 @@
 package fr.corentin_guiniotallalou.service;
 
-import fr.corentin_guiniotallalou.model.CurrentAccount;
+import fr.corentin_guiniotallalou.dto.CurrentAccountDTO;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ICurrentAccountService {
-    List<CurrentAccount> findAll();
-    Optional<CurrentAccount> findById(Long id);
-    Optional<CurrentAccount> findByIdWithCard(Long id);
-    CurrentAccount save(CurrentAccount account);
+    List<CurrentAccountDTO> findAll();
+    Optional<CurrentAccountDTO> findById(Long id);
+    Optional<CurrentAccountDTO> findByIdWithCard(Long id);
+    CurrentAccountDTO save(CurrentAccountDTO accountDTO);
     void deleteById(Long id);
 }

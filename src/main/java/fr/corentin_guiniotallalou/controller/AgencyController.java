@@ -1,6 +1,6 @@
 package fr.corentin_guiniotallalou.controller;
 
-import fr.corentin_guiniotallalou.model.Agency;
+import fr.corentin_guiniotallalou.dto.AgencyDTO;
 import fr.corentin_guiniotallalou.service.IAgencyService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,23 +17,23 @@ public class AgencyController {
     }
 
     @GetMapping
-    public List<Agency> getAllAgencies() {
+    public List<AgencyDTO> getAllAgencies() {
         return agencyService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Agency> getAgencyById(@PathVariable String id) {
+    public ResponseEntity<AgencyDTO> getAgencyById(@PathVariable String id) {
         return agencyService.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/{id}/with-advisors")
-    public ResponseEntity<Agency> getAgencyWithAdvisors(@PathVariable String id) {
+    public ResponseEntity<AgencyDTO> getAgencyWithAdvisors(@PathVariable String id) {
         return agencyService.findByIdWithAdvisors(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Agency createAgency(@RequestBody Agency agency) {
-        return agencyService.save(agency);
+    public AgencyDTO createAgency(@RequestBody AgencyDTO agencyDTO) {
+        return agencyService.save(agencyDTO);
     }
 
     @DeleteMapping("/{id}")

@@ -1,14 +1,14 @@
 package fr.corentin_guiniotallalou.service;
 
-import fr.corentin_guiniotallalou.model.Client;
+import fr.corentin_guiniotallalou.dto.ClientDTO;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface IClientService {
-    List<Client> findAll();
-    Optional<Client> findById(Long id);
-    Optional<Client> findByIdWithAccounts(Long id);
-    Client save(Client client);
+    List<ClientDTO> findAll();
+    Optional<ClientDTO> findById(Long id);
+    Optional<ClientDTO> findByIdWithAccounts(Long id);
+    ClientDTO save(ClientDTO clientDTO);
     void deleteById(Long id);
 }

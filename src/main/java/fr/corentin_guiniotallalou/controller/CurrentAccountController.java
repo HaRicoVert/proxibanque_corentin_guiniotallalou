@@ -1,6 +1,6 @@
 package fr.corentin_guiniotallalou.controller;
 
-import fr.corentin_guiniotallalou.model.CurrentAccount;
+import fr.corentin_guiniotallalou.dto.CurrentAccountDTO;
 import fr.corentin_guiniotallalou.service.ICurrentAccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,27 +17,27 @@ public class CurrentAccountController {
     }
 
     @GetMapping
-    public List<CurrentAccount> getAllCurrentAccounts() {
+    public List<CurrentAccountDTO> getAllCurrentAccounts() {
         return currentAccountService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<CurrentAccount> getCurrentAccountById(@PathVariable Long id) {
+    public ResponseEntity<CurrentAccountDTO> getCurrentAccountById(@PathVariable Long id) {
         return currentAccountService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/{id}/with-card")
-    public ResponseEntity<CurrentAccount> getCurrentAccountWithCard(@PathVariable Long id) {
+    public ResponseEntity<CurrentAccountDTO> getCurrentAccountWithCard(@PathVariable Long id) {
         return currentAccountService.findByIdWithCard(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public CurrentAccount createCurrentAccount(@RequestBody CurrentAccount account) {
-        return currentAccountService.save(account);
+    public CurrentAccountDTO createCurrentAccount(@RequestBody CurrentAccountDTO accountDTO) {
+        return currentAccountService.save(accountDTO);
     }
 
     @DeleteMapping("/{id}")

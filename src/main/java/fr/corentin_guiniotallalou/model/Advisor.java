@@ -1,6 +1,5 @@
 package fr.corentin_guiniotallalou.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,10 +23,8 @@ public class Advisor {
     private String firstName;
 
     @ManyToOne
-    @JsonIgnoreProperties({"advisors", "manager"})
     private Agency agency;
 
     @OneToMany(mappedBy = "advisor")
-    @JsonIgnoreProperties({"advisor", "currentAccounts", "savingsAccounts"})
     private List<Client> clients = new ArrayList<>();
 }

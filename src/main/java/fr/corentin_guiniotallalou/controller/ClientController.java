@@ -1,6 +1,6 @@
 package fr.corentin_guiniotallalou.controller;
 
-import fr.corentin_guiniotallalou.model.Client;
+import fr.corentin_guiniotallalou.dto.ClientDTO;
 import fr.corentin_guiniotallalou.service.IClientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,35 +16,35 @@ public class ClientController {
     }
 
     @GetMapping
-    public List<Client> getAllClients() {
+    public List<ClientDTO> getAllClients() {
         return clientService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Client> getClientById(@PathVariable Long id) {
+    public ResponseEntity<ClientDTO> getClientById(@PathVariable Long id) {
         return clientService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/{id}/with-accounts")
-    public ResponseEntity<Client> getClientWithAccounts(@PathVariable Long id) {
+    public ResponseEntity<ClientDTO> getClientWithAccounts(@PathVariable Long id) {
         return clientService.findByIdWithAccounts(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Client createClient(@RequestBody Client client) {
-        return clientService.save(client);
+    public ClientDTO createClient(@RequestBody ClientDTO clientDTO) {
+        return clientService.save(clientDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client client) {
+    public ResponseEntity<ClientDTO> updateClient(@PathVariable Long id, @RequestBody ClientDTO clientDTO) {
         return clientService.findById(id)
                 .map(existing -> {
-                    client.setId(id);
-                    return ResponseEntity.ok(clientService.save(client));
+                    clientDTO.setId(id);
+                    return ResponseEntity.ok(clientService.save(clientDTO));
                 })
                 .orElse(ResponseEntity.notFound().build());
     }

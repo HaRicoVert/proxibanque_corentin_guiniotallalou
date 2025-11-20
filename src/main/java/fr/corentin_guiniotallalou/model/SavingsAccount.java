@@ -1,6 +1,5 @@
 package fr.corentin_guiniotallalou.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,7 +23,6 @@ public class SavingsAccount {
     private LocalDate openingDate;
 
     @ManyToOne
-    @JsonIgnoreProperties({"currentAccounts", "savingsAccounts", "advisor"})
     private Client client;
 
     @OneToOne(cascade = CascadeType.ALL)

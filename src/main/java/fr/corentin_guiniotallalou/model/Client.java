@@ -1,6 +1,5 @@
 package fr.corentin_guiniotallalou.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,7 +27,6 @@ public class Client {
     private String phone;
 
     @ManyToOne
-    @JsonIgnoreProperties({"clients", "agency"})
     private Advisor advisor;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)

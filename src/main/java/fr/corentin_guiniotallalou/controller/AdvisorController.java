@@ -1,6 +1,6 @@
 package fr.corentin_guiniotallalou.controller;
 
-import fr.corentin_guiniotallalou.model.Advisor;
+import fr.corentin_guiniotallalou.dto.AdvisorDTO;
 import fr.corentin_guiniotallalou.service.IAdvisorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,27 +16,27 @@ public class AdvisorController {
     }
 
     @GetMapping
-    public List<Advisor> getAllAdvisors() {
+    public List<AdvisorDTO> getAllAdvisors() {
         return advisorService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Advisor> getAdvisorById(@PathVariable Long id) {
+    public ResponseEntity<AdvisorDTO> getAdvisorById(@PathVariable Long id) {
         return advisorService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/{id}/with-clients")
-    public ResponseEntity<Advisor> getAdvisorWithClients(@PathVariable Long id) {
+    public ResponseEntity<AdvisorDTO> getAdvisorWithClients(@PathVariable Long id) {
         return advisorService.findByIdWithClients(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Advisor createAdvisor(@RequestBody Advisor advisor) {
-        return advisorService.save(advisor);
+    public AdvisorDTO createAdvisor(@RequestBody AdvisorDTO advisorDTO) {
+        return advisorService.save(advisorDTO);
     }
 
     @DeleteMapping("/{id}")
