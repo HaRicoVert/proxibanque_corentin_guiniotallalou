@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/agencies")
 public class AgencyController {
-
     private final AgencyService agencyService;
 
     public AgencyController(AgencyService agencyService) {

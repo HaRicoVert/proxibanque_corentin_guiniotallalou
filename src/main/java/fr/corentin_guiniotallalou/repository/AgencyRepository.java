@@ -8,7 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface AgencyRepository extends JpaRepository<Agency, String> {
-
     @Query("SELECT agency FROM Agency agency JOIN FETCH agency.manager WHERE agency.id = :id")
     Optional<Agency> findByIdWithManager(String id);
 

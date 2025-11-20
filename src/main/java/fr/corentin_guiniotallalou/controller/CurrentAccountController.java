@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/current-accounts")
 public class CurrentAccountController {
-
     private final CurrentAccountService currentAccountService;
 
     public CurrentAccountController(CurrentAccountService currentAccountService) {

@@ -9,7 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface SavingsAccountRepository extends JpaRepository<SavingsAccount, Long> {
-
     @Query("SELECT account FROM SavingsAccount account LEFT JOIN FETCH account.card WHERE account.id = :id")
     Optional<SavingsAccount> findByIdWithCard(Long id);
 

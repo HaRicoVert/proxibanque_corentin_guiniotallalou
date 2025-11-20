@@ -9,7 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface AdvisorRepository extends JpaRepository<Advisor, Long> {
-
     @Query("SELECT advisor FROM Advisor advisor LEFT JOIN FETCH advisor.clients WHERE advisor.id = :id")
     Optional<Advisor> findByIdWithClients(Long id);
 

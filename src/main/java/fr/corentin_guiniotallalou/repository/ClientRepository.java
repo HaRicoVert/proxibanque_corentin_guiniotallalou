@@ -8,7 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
-
     @Query("SELECT client FROM Client client LEFT JOIN FETCH client.currentAccounts LEFT JOIN FETCH client.savingsAccounts WHERE client.id = :id")
     Optional<Client> findByIdWithAccounts(Long id);
 

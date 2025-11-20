@@ -9,7 +9,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/advisors")
 public class AdvisorController {
-
     private final AdvisorService advisorService;
 
     public AdvisorController(AdvisorService advisorService) {

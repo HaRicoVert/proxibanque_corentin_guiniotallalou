@@ -10,7 +10,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/savings-accounts")
 public class SavingsAccountController {
-
     private final SavingsAccountService savingsAccountService;
 
     public SavingsAccountController(SavingsAccountService savingsAccountService) {
